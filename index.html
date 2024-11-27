@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Será Niño o Niña?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>¡Participa en nuestra Revelación de Género!</h1>
+        <p>¿Crees que será un niño o una niña? Selecciona tu opción y escribe tu nombre para participar.</p>
+        <form id="predictionForm">
+            <input type="text" id="nameInput" name="name" placeholder="Tu nombre" required>
+            <div class="options">
+                <label class="option-card">
+                    <input type="radio" name="gender" value="Niña" required>
+                    <img src="girl.jpg" alt="Opción Niña">
+                    <span class="label">Niña</span>
+                </label>
+                <label class="option-card">
+                    <input type="radio" name="gender" value="Niño" required>
+                    <img src="boy.jpg" alt="Opción Niño">
+                    <span class="label">Niño</span>
+                </label>
+            </div>
+            <button type="submit">Enviar Predicción</button>
+        </form>
+        <div id="message" class="hidden">
+            <p>Gracias por participar. El resultado se revelará el 8 de diciembre. ¡Mantente atento!</p>
+            <button id="newPredictionButton">Ingresar otro pronóstico</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Nuestra Celebración Especial</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

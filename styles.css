@@ -1,0 +1,155 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#nameInput {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    margin-bottom: 25px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.option-card {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.option-card input[type="radio"] {
+    display: none;
+}
+
+.option-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid transparent;
+}
+
+.option-card .label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+.option-card input[type="radio"]:checked + img {
+    border-color: #ff4081; /* Color rosa */
+}
+
+button[type="submit"] {
+    padding: 15px 40px;
+    font-size: 1.1em;
+    background-color: #2196f3; /* Azul */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #1976d2;
+}
+
+#message {
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el botón "Ingresar otro pronóstico" */
+#newPredictionButton {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 1em;
+    background-color: #ff4081; /* Rosa */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#newPredictionButton:hover {
+    background-color: #e91e63;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #fafafa;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+}
+
+@media (max-width: 600px) {
+    .options {
+        flex-direction: column;
+    }
+
+    .option-card {
+        width: 100%;
+    }
+}

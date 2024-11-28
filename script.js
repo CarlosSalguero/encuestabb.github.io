@@ -1,35 +1,41 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Reemplaza con tu endpoint de SheetDB
-    const sheetDBEndpoint = 'https://sheetdb.io/api/v1/uqvya4tsk9owo';
+    const sheetDBEndpoint = 'https://sheetdb.io/api/v1/TU_API_ENDPOINT_DE_SHEETDB';
 
-    const form = $('#predictionForm');
-    const messageDiv = $('#message');
-    const newPredictionButton = $('#newPredictionButton');
+    const form = document.getElementById('predictionForm');
+    const messageDiv = document.getElementById('message');
+    const newPredictionButton = document.getElementById('newPredictionButton');
 
     // Función para actualizar los estilos de selección
     function updateSelectionStyles() {
         // Remover clases previas
-        $('.option-card img').removeClass('selected-boy selected-girl');
+        document.querySelectorAll('.option-card img').forEach(img => {
+            img.classList.remove('selected-boy', 'selected-girl');
+        });
 
         // Obtener el valor seleccionado
-        const selectedGender = $('input[name="gender"]:checked').val();
+        const selectedGender = document.querySelector('input[name="gender"]:checked');
 
-        if (selectedGender === 'Niño') {
-            // Añadir clase al elemento seleccionado
-            $('input[name="gender"]:checked').siblings('img').addClass('selected-boy');
-        } else if (selectedGender === 'Niña') {
-            $('input[name="gender"]:checked').siblings('img').addClass('selected-girl');
+        if (selectedGender) {
+            const imgElement = selectedGender.closest('.option-card').querySelector('img');
+            if (selectedGender.value === 'Niño') {
+                imgElement.classList.add('selected-boy');
+            } else if (selectedGender.value === 'Niña') {
+                imgElement.classList.add('selected-girl');
+            }
         }
     }
 
     // Llamar a la función cuando se cambia la selección
-    $('input[name="gender"]').on('change', updateSelectionStyles);
+    document.querySelectorAll('input[name="gender"]').forEach(input => {
+        input.addEventListener('change', updateSelectionStyles);
+    });
 
-    form.on('submit', function(event) {
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
 
-        const name = $('#nameInput').val().trim();
-        const gender = $('input[name="gender"]:checked').val();
+        const name = document.getElementById('nameInput').value.trim();
+        const genderInput = form.elements['gender'].value;
 
         // Validar que se haya ingresado un nombre
         if (!name) {
@@ -37,44 +43,48 @@ $(document).ready(function() {
             return;
         }
 
-        const confirmation = confirm(`¿Estás seguro de que será ${gender}?`);
+        const confirmation = confirm(`¿Estás seguro de que será ${genderInput}?`);
 
         if (confirmation) {
             // Mostrar mensaje de agradecimiento
-            messageDiv.removeClass('hidden');
+            messageDiv.classList.remove('hidden');
 
-            // Enviar datos a SheetDB vía POST
-            $.ajax({
-                url: sheetDBEndpoint,
+            // Crear el objeto de datos
+            const data = {
+                name: name,
+                gender: genderInput,
+                timestamp: new Date().toLocaleString()
+            };
+
+            // Enviar datos a SheetDB vía fetch
+            fetch(sheetDBEndpoint, {
                 method: 'POST',
-                data: {
-                    data: {
-                        name: name,
-                        gender: gender,
-                        timestamp: new Date().toLocaleString()
-                    }
-                },
-                success: function(response) {
-                    console.log('Datos enviados correctamente:', response);
-                },
-                error: function(error) {
-                    console.error('Error al enviar los datos:', error);
-                }
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ data: data })
+            })
+            .then(response => response.json())
+            .then(responseData => {
+                console.log('Datos enviados correctamente:', responseData);
+            })
+            .catch(error => {
+                console.error('Error al enviar los datos:', error);
             });
 
             // Limpiar el formulario y ocultarlo
-            form[0].reset();
-            form.addClass('hidden');
+            form.reset();
+            form.classList.add('hidden');
 
             // Remover estilos de selección
-            $('.option-card img').removeClass('selected-boy selected-girl');
+            document.querySelectorAll('.option-card img').forEach(img => {
+                img.classList.remove('selected-boy', 'selected-girl');
+            });
         }
     });
 
     // Evento para el botón "Ingresar otro pronóstico"
-    newPredictionButton.on('click', function() {
+    newPredictionButton.addEventListener('click', () => {
         // Mostrar el formulario y ocultar el mensaje
-        form.removeClass('hidden');
-        messageDiv.addClass('hidden');
+        form.classList.remove('hidden');
+        messageDiv.classList.add('hidden');
     });
 });

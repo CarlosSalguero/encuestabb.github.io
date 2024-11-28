@@ -1,44 +1,47 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('predictionForm');
-    const messageDiv = document.getElementById('message');
-    const newPredictionButton = document.getElementById('newPredictionButton');
+$(document).ready(function() {
+    const scriptURL = 'https://script.google.com/macros/s/TU_SCRIPT_DE_GOOGLE_APPS_SCRIPT_URL/exec'; // Reemplaza con tu URL
+    const form = $('#predictionForm');
+    const messageDiv = $('#message');
+    const newPredictionButton = $('#newPredictionButton');
 
-    form.addEventListener('submit', (event) => {
+    form.on('submit', function(event) {
         event.preventDefault();
 
-        const name = document.getElementById('nameInput').value.trim();
-        const gender = form.elements['gender'].value;
+        const name = $('#nameInput').val().trim();
+        const gender = $('input[name="gender"]:checked').val();
 
         const confirmation = confirm(`¿Estás seguro de que será ${gender}?`);
 
         if (confirmation) {
             // Mostrar mensaje de agradecimiento
-            messageDiv.classList.remove('hidden');
+            messageDiv.removeClass('hidden');
 
-            // Enviar datos a Google Sheets
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxKqydbGRZqJ0NQQE2Li5_7kq8X5OQg6sAC90vb0NmkR4HdJMweVNiLNcAselwKYz0h/exec';
-            fetch(scriptURL, {
-                method: 'POST',
-                body: JSON.stringify({ name, gender }),
-                headers: { 'Content-Type': 'application/json' },
-            })
-            .then(response => {
-                console.log('Datos enviados correctamente:', response);
-            })
-            .catch(error => {
-                console.error('Error al enviar los datos:', error);
+            // Serializar datos del formulario
+            const data = form.serialize();
+
+            // Enviar datos al script de Google Apps vía GET
+            $.ajax({
+                url: scriptURL + '?' + data,
+                method: "GET",
+                dataType: "json",
+                success: function(response) {
+                    console.log('Datos enviados correctamente:', response);
+                },
+                error: function(error) {
+                    console.error('Error al enviar los datos:', error);
+                }
             });
 
             // Limpiar el formulario y ocultarlo
-            form.reset();
-            form.classList.add('hidden');
+            form[0].reset();
+            form.addClass('hidden');
         }
     });
 
     // Evento para el botón "Ingresar otro pronóstico"
-    newPredictionButton.addEventListener('click', () => {
+    newPredictionButton.on('click', function() {
         // Mostrar el formulario y ocultar el mensaje
-        form.classList.remove('hidden');
-        messageDiv.classList.add('hidden');
+        form.removeClass('hidden');
+        messageDiv.addClass('hidden');
     });
 });

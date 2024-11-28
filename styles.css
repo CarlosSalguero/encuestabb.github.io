@@ -1,31 +1,22 @@
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos Generales */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5; /* Color neutro */
     color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    flex: 1;
-    padding: 40px 20px;
-    text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 15px;
-    color: #333;
 }
 
 p {
@@ -34,6 +25,7 @@ p {
     color: #555;
 }
 
+/* Formulario */
 form {
     background-color: #fff;
     padding: 30px;
@@ -87,71 +79,6 @@ form {
     color: #333;
 }
 
-.option-card input[type="radio"]:checked + img {
-    border-color: #2196f3; /* Color de selección (puede ser ajustado) */
-}
-
-button[type="submit"] {
-    padding: 15px 40px;
-    font-size: 1.1em;
-    background-color: #2196f3; /* Azul neutro */
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-    background-color: #1976d2;
-}
-
-#message {
-    margin-top: 30px;
-    font-size: 1.2em;
-    color: #333;
-}
-
-#newPredictionButton {
-    margin-top: 20px;
-    padding: 10px 30px;
-    font-size: 1em;
-    background-color: #4caf50; /* Verde */
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#newPredictionButton:hover {
-    background-color: #388e3c;
-}
-
-.hidden {
-    display: none;
-}
-
-footer {
-    background-color: #fafafa;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #777;
-}
-
-@media (max-width: 600px) {
-    .options {
-        flex-direction: column;
-    }
-
-    .option-card {
-        width: 100%;
-    }
-}
-
-/* ... código existente ... */
-
 /* Estilos para la opción seleccionada: Niño */
 .selected-boy {
     border-color: #2196f3; /* Azul */
@@ -162,7 +89,52 @@ footer {
     border-color: #ff4081; /* Rosa */
 }
 
-/* Remover el estilo anterior */
-.option-card input[type="radio"]:checked + img {
-    border-color: transparent;
+/* Botones */
+button[type="submit"],
+#newPredictionButton {
+    padding: 15px 40px;
+    font-size: 1.1em;
+    background-color: #2196f3; /* Azul neutro */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover,
+#newPredictionButton:hover {
+    background-color: #1976d2;
+}
+
+/* Mensaje de agradecimiento */
+#message {
+    margin-top: 30px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: #fafafa;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .options {
+        flex-direction: column;
+    }
+
+    .option-card {
+        width: 100%;
+    }
 }

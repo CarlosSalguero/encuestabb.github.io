@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    const scriptURL = 'https://script.google.com/macros/s/TU_SCRIPT_DE_GOOGLE_APPS_SCRIPT_URL/exec'; // Reemplaza con tu URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxKqydbGRZqJ0NQQE2Li5_7kq8X5OQg6sAC90vb0NmkR4HdJMweVNiLNcAselwKYz0h/exec'; // Reemplaza con tu URL
     const form = $('#predictionForm');
     const messageDiv = $('#message');
     const newPredictionButton = $('#newPredictionButton');

@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Será Niño o Niña?</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <main class="container">
-        <h1>¡Participa en nuestra Revelación de Género!</h1>
-        <p>¿Crees que será un niño o una niña? Selecciona tu opción y escribe tu nombre para participar.</p>
-        <form id="predictionForm">
-            <input type="text" id="nameInput" name="name" placeholder="Tu nombre" required>
-            <div class="options">
-                <label class="option-card">
-                    <input type="radio" name="gender" value="Niña" required>
-                    <img src="IMG/girl.jpeg" alt="Opción Niña">
-                    <span class="label">Niña</span>
-                </label>
-                <label class="option-card">
-                    <input type="radio" name="gender" value="Niño" required>
-                    <img src="IMG/boy.jpeg" alt="Opción Niño">
-                    <span class="label">Niño</span>
-                </label>
-            </div>
-            <button type="submit">Enviar Predicción</button>
-        </form>
-        <div id="message" class="hidden">
-            <p>Gracias por participar. El resultado se revelará el 8 de diciembre. ¡Mantente atento!</p>
-            <button id="newPredictionButton">Ingresar otro pronóstico</button>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Nuestra Celebración Especial</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>Formulario de contacto</title>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-serialize-object/2.5.0/jquery.serialize-object.min.js"></script>
+ </head>
+ <body>
+ <form id="contact-form">
+ <h2>Formulario de contacto</h2>
+ <p>
+ <label>Nombre<br><input type="text"  name="nombre"></label><br>
+ <label>Email<br><input type="email" name="email"></label><br>
+ <label>Comentarios<br></label><textarea name="comentarios" cols=40 rows=5></textarea></label>
+ </p>
+ <input id="submit-contact-form" type="submit" value="Submit">
+ </form>
+ <script>
+ (function() {
+ var $form = $('form#contact-form'), url = 'https://script.google.com/macros/s/AKfycbxKqydbGRZqJ0NQQE2Li5_7kq8X5OQg6sAC90vb0NmkR4HdJMweVNiLNcAselwKYz0h/exec';
+ $('#submit-contact-form').on('click', function(e) {
+ e.preventDefault();
+ var jqxhr = $.ajax({
+ url: url,
+ method: "GET",
+ dataType: "json",
+ data: $form.serializeObject(),
+ success: function(data) {
+ console.log(data);
+ $('form#contact-form').hide();
+ $('body').append("<p style='color:green'>Gracias por tu interés. Contactaremos contigo en breve.</p>");
+ }
+ });
+ });
+ })();
+ </script>
+ </body>
 </html>

@@ -45,7 +45,7 @@ form {
 
 .input-group {
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center; /* Centrar el contenido dentro del input-group */
 }
 
 .input-group label {
@@ -56,10 +56,13 @@ form {
 
 .input-group input {
     width: 100%;
+    max-width: 400px; /* Establece un ancho máximo para el input */
     padding: 12px;
     font-size: 1em;
     border: 2px solid #ccc;
     border-radius: 5px;
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: block;
 }
 
 .options {

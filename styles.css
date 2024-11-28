@@ -149,3 +149,20 @@ footer {
         width: 100%;
     }
 }
+
+/* ... código existente ... */
+
+/* Estilos para la opción seleccionada: Niño */
+.selected-boy {
+    border-color: #2196f3; /* Azul */
+}
+
+/* Estilos para la opción seleccionada: Niña */
+.selected-girl {
+    border-color: #ff4081; /* Rosa */
+}
+
+/* Remover el estilo anterior */
+.option-card input[type="radio"]:checked + img {
+    border-color: transparent;
+}

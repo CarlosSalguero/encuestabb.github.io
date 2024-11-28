@@ -55,14 +55,15 @@ form {
 }
 
 .input-group input {
-    width: 100%;
-    max-width: 400px; /* Establece un ancho máximo para el input */
+    width: calc(100% - 40px); /* Ancho total menos los márgenes fijos */
+    max-width: 400px;
     padding: 12px;
     font-size: 1em;
     border: 2px solid #ccc;
     border-radius: 5px;
-    margin: 0 auto; /* Centrar horizontalmente */
+    margin: 0 20px; /* Márgenes de 20px en los lados izquierdo y derecho */
     display: block;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
 

@@ -147,6 +147,7 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
 /* Diseño responsivo */
 @media (max-width: 600px) {
     .options {

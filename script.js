@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Por favor, ingresa tu nombre.');
             return;
         }
-
         // Crear el objeto de datos
         const data = {
             name: name,

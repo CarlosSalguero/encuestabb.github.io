@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameInput = document.getElementById('nameInput');
 
     // Reemplaza 'TU_API_ENDPOINT_DE_SHEETDB' con tu endpoint de SheetDB
-    const sheetdbEndpoint = 'https://sheetdb.io/api/v1/TU_API_ENDPOINT_DE_SHEETDB';
+    const sheetdbEndpoint = 'https://sheetdb.io/api/v1/uqvya4tsk9owo';
 
     // Resaltar la opción seleccionada
     optionCards.forEach(card => {

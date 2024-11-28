@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    background-color: #f5f5f5; /* Color neutro */
     color: #333;
     min-height: 100vh;
     display: flex;
@@ -25,19 +25,17 @@ body {
 h1 {
     font-size: 2.5em;
     margin-bottom: 15px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #333;
 }
 
 p {
     font-size: 1.2em;
     margin-bottom: 30px;
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: #555;
 }
 
 form {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -90,13 +88,13 @@ form {
 }
 
 .option-card input[type="radio"]:checked + img {
-    border-color: #ff4081; /* Color rosa */
+    border-color: #2196f3; /* Color de selección (puede ser ajustado) */
 }
 
 button[type="submit"] {
     padding: 15px 40px;
     font-size: 1.1em;
-    background-color: #2196f3; /* Azul */
+    background-color: #2196f3; /* Azul neutro */
     color: #fff;
     border: none;
     border-radius: 50px;
@@ -111,16 +109,14 @@ button[type="submit"]:hover {
 #message {
     margin-top: 30px;
     font-size: 1.2em;
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    color: #333;
 }
 
-/* Estilos para el botón "Ingresar otro pronóstico" */
 #newPredictionButton {
     margin-top: 20px;
     padding: 10px 30px;
     font-size: 1em;
-    background-color: #ff4081; /* Rosa */
+    background-color: #4caf50; /* Verde */
     color: #fff;
     border: none;
     border-radius: 50px;
@@ -129,7 +125,7 @@ button[type="submit"]:hover {
 }
 
 #newPredictionButton:hover {
-    background-color: #e91e63;
+    background-color: #388e3c;
 }
 
 .hidden {

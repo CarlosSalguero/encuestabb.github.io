@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.querySelector('input[type="radio"]').checked = true;
         });
     });
+    
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();

@@ -105,6 +105,12 @@ form {
     border-color: #FFD700; /* Color dorado para resaltar la selección */
 }
 
+/* Centrar el botón */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
 button[type="submit"],
 #anotherVoteButton {
     padding: 14px 40px;
